@@ -7,7 +7,8 @@ feature 'Get Tweets' do
       click_on 'Obter Tweets'
     end
 
-    expect(page).to have_css('h1', text: 'Menções à @locaweb')
+    expect(page).to have_css('h1', text: '@locaweb menções')
+
     within('#tweets') do
       expect(page).to have_content('Usuário')
       expect(page).to have_content('Seguidores')
