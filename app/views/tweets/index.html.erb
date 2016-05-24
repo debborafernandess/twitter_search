@@ -4,11 +4,11 @@
     <tr>
       <th>Usuário</th>
       <th>Seguidores</th>
-      <th>Tweet</th>
+      <th>Tweet (<%= @tweets.count %>)</th>
       <th></th>
     </tr>
-    <tr>
-
-    </tr>
+    <% @tweets.each do |tweet| %>
+      <%= render partial: 'tweet', locals: { tweet: tweet } %>
+    <% end %>
   </table>
 </div>

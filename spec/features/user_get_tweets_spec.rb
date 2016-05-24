@@ -19,7 +19,6 @@ feature 'Get Tweets' do
   scenario 'without email' do
     visit root_path
 
-
     within('#user') do
       fill_in 'email', with: ''
       click_on 'Obter Tweets'
