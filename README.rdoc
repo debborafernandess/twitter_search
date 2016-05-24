@@ -1,28 +1,19 @@
-== README
+## Twitter SAC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Description
+Search by mentions on Twitter API to answer it. Also list users that more quote.
 
-Things you may want to cover:
+### Instalation
 
-* Ruby version
+It runs over ruby 2.3.0 and rails 4.2.6, so if doesn't have this gem/version intalled, run
+```shell
+  gem install ruby -v '2.3.0'
+  bundle install
 
-* System dependencies
+  gem install rails -v '4.2.6'
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Run tests
+```ruby
+  bundle exec rspec
+```
