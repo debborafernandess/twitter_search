@@ -1,0 +1,9 @@
+<div class='form'>
+  <%= form_tag '#' %>
+    <div class="form-group">
+      <%= label_tag 'Informe seu e-mail para começar: ' %>
+      <%= text_field_tag :email, nil, class: 'form-control', placeholder: 'mail@mail.com' %>
+    </div>
+    <%= submit_tag 'Obter tweets', class: 'btn btn-default' %>
+  </form>
+</div>
