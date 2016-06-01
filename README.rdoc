@@ -2,6 +2,9 @@
 
 ### Description
 Search by mentions on Twitter API to answer it. Also list users that more quote.
+First of all, it will send a request to get mentions and record this response into a Tweet's table, allowing App's users to answer the tweet later.
+
+
 
 ### Instalation
 
@@ -17,3 +20,15 @@ Run tests
 ```ruby
   bundle exec rspec
 ```
+
+Create db to record tweets that need be answered
+```ruby
+  bundle exec rake db:migrate
+```
+
+Start the APP
+```ruby
+  rails s
+```
+And access it into browser: ```localhost:3000```
+

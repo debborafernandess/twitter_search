@@ -1,0 +1,115 @@
+hash
+{
+  "coordinates"=>nil,
+  "favorited"=>false,
+  "truncated"=>false,
+  "created_at"=>"Mon Sep 24 03:35:21 +0000 2012",
+  "id_str"=>"659071",
+  "entities"=>
+  {
+    "urls"=>[],
+    "hashtags"=>[],
+    "user_mentions"=>
+    [
+      {
+        "screen_name"=>"nicolas_delfina",
+        "name"=>"Nicolas Delfina",
+        "id"=>17349,
+        "id_str"=>"17349",
+        "indices"=>[1, 17]
+      }
+    ]
+  },
+  "in_reply_to_user_id_str"=>"17349",
+  "contributors"=>nil,
+  "text"=>"@nicolas_delfina hacking the bandwidth won't do anything, we need to parse the opt",
+  "metadata"=>
+    {
+      "iso_language_code"=>"pt",
+      "result_type"=>"recent"
+    },
+  "retweet_count"=>0,
+  "in_reply_to_status_id_str"=>"31855",
+  "id"=>659071,
+  "geo"=>nil,
+  "retweeted"=>false,
+  "in_reply_to_user_id"=>17349,
+  "place"=>nil,
+  "user"=>{
+    "profile_sidebar_fill_color"=>"DDEEF6",
+    "profile_sidebar_border_color"=>"C0DEED",
+    "profile_background_tile"=>false,
+    "name"=>"Moises Mccullough",
+    "profile_image_url"=>"http://a0.twimg.com/profile_images/2359746665/1v6zfgqo8g0d3mk7ii5s_normal.jpeg",
+    "created_at"=>"Mon Apr 26 06:01:55 +0000 2010",
+    "location"=>"LA,
+    CA",
+    "follow_request_sent"=>nil,
+    "profile_link_color"=>"0084B4",
+    "is_translator"=>false,
+    "id_str"=>"67300",
+    "entities"=>
+    {
+      "url"=>{"urls"=>[{"expanded_url"=>nil, "url"=>"", "indices"=>[0, 0]}]},
+      "description"=>{"urls"=>[]}
+    },
+  "default_profile"=>true,
+  "contributors_enabled"=>false,
+  "favourites_count"=>0,
+  "url"=>nil,
+  "profile_image_url_https"=>"https://si0.twimg.com/profile_images/2359746665/1v6zfgqo8g0d3mk7ii5s_normal.jpeg",
+  "utc_offset"=>-28800,
+  "id"=>67300,
+  "profile_use_background_image"=>true,
+  "listed_count"=>2,
+  "profile_text_color"=>"333333",
+  "lang"=>"en",
+  "followers_count"=>527,
+  "protected"=>false,
+  "notifications"=>nil,
+  "profile_background_image_url_https"=>"https://si0.twimg.com/images/themes/theme1/bg.png",
+  "profile_background_color"=>"C0DEED",
+  "verified"=>false,
+  "geo_enabled"=>true,
+  "time_zone"=>"Pacific Time (US & Canada)",
+  "description"=>"Born 330 Live 310",
+  "default_profile_image"=>false,
+  "profile_background_image_url"=>"http://a0.twimg.com/images/themes/theme1/bg.png",
+  "statuses_count"=>579,
+  "friends_count"=>527,
+  "following"=>nil,
+  "show_all_inline_media"=>false,
+  "screen_name"=>"moises_mccullough"},
+  "in_reply_to_screen_name"=>"nicolas_delfina",
+  "source"=>"web",
+  "in_reply_to_status_id"=>31855
+}
+
+
+
+A documentação do recurso de busca do twitter está em:
+https://dev.twitter.com/docs/api/1.1/get/search/tweets
+https://dev.twitter.com/docs/platform-objects/tweets
+
+Queremos que a aplicação liste os tweets com as seguintes regras:
+
+- buscar tweets que mencionem o usuário da Locaweb
+excluir tweets que sejam replies para tweets da locaweb (vamos fingir que estamos tratando apenas de casos novos e não de casos em andamento) OK
+dar prioridade aos usuários com mais seguidores, tweets tenham mais retweets (considerar apenas o RT oficial do twitter) ou que o tweet seja favoritado mais vezes (todos os critérios com o mesmo peso) então estes tweets devem ser listados mais em cima na lista
+
+Para efeito de testes, vamos considerar que usuário da locaweb no twitter tem o ID 42
+
+Apresente os resultados com a ordenação acima e os campos:
+screen_name (@usuario) que fez o tweet (com link para o perfil) OK
+número de seguidores do autor,
+número retweets
+favoritados do tweet
+conteúdo do tweet
+data/hora do tweet (com link para o tweet)
+
+
+Listar também os usuários que mais mencionam a locaweb
+Para a lista dos usuários que mais mencionam, agrege os dados dos tweets por usuário e aplique os mesmos critérios de ordenação acima.
+
+Você está livre para usar qualquer versão do ruby/rails e framwork gems de sua escolha apenas indique tudo isto em seu Gemfile e/ou .ruby-version. Também queremos instruções de como rodar (sim, mandar executar um bundle
+ exec rails s e acessarhttp://localhost:3000/ conta como instruções!)

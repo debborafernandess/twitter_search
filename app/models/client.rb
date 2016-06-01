@@ -1,30 +1,23 @@
 class Client
   attr_accessor :request, :response
 
-  def initialize(username = nil)
-    @username = username
+  def get(route = '', params = {})
+    @request = request(:get, route, params)
   end
 
-  def get(route = nil, params = {})
-    return 'Unauthorized' if @username.nil?
-
-    request(:get, route, params)
+  def response
+    @response = JSON.parse(@request)
   end
 
   private
 
-  def request(method, route, params = {})
+  def request(method, route = '', params = {})
     request = RestClient::Request.execute(
                 method: method,
                 url: url(route),
                 params: params,
-                headers: { username: @username }
+                headers: { username: 'mymail@mail.com' }
               )
-    response(request)
-  end
-
-  def response(request_response)
-    JSON.parse(request_response)
   end
 
   def url(route = '')

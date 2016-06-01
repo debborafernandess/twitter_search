@@ -1,24 +1,29 @@
-class Mention < Client
-  attr_accessor :username
+class Mention
+  SEARCH_URI = '/search/tweets.json'
 
-  def initialize(username = nil)
-    @username = username
+  attr_accessor :tweets
+
+  def initialize
+    @request = Client.new
   end
 
   def all
-    response = get(route, params)
-    response['statuses']
+    @request.get(SEARCH_URI)
+
+    get_mentions
+    filter_replies
   end
+
 
   private
 
-  def route
-    '/search/tweets.json'
+  def get_mentions
+    return [] if @request.response.blank?
+    @tweets =  @request.response['statuses'].select { |tweet| /@locaweb/.match(tweet['text']) }
   end
 
-  def params
-    'paf=tweets&q=@locaweb -to:locaweb -from:locaweb'
+  def filter_replies
+    return [] if @tweets.blank?
+    @tweets = @tweets.select { |tweet| tweet['in_reply_to_user_id'] != 42 }
   end
-
-
 end

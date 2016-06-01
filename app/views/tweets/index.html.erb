@@ -1,11 +1,13 @@
 <div>
-  <h1>@locaweb menções</h1>
+  <h1>Novas menções</h1>
   <table id='tweets' class='table table-bordered table-striped'>
     <tr>
       <th>Usuário</th>
       <th>Seguidores</th>
       <th>Tweet (<%= @tweets.count %>)</th>
-      <th></th>
+      <th>RTs</th>
+      <th>Likes</th>
+      <th>Data</th>
     </tr>
     <% @tweets.each do |tweet| %>
       <%= render partial: 'tweet', locals: { tweet: tweet } %>

@@ -1,31 +1,20 @@
-feature 'Get Tweets' do
-  scenario 'inform email' do
+feature 'User gets mentioned Tweets' do
+  scenario 'first time' do
     visit root_path
 
-    within('#user') do
-      fill_in 'email', with: Faker::Internet.email
-      click_on 'Obter Tweets'
-    end
+    click_on 'Menções'
+byebug
 
-    expect(page).to have_css('h1', text: '@locaweb menções')
+    expect(page).to have_css('h1', text: 'Novas menções')
 
     within('#tweets') do
-      expect(page).to have_content('Usuário')
-      expect(page).to have_content('Seguidores')
-      expect(page).to have_content('Tweet')
-    end
-  end
+      expect(page).to have_css('th', text: 'Usuário')
+      expect(page).to have_css('th', text: 'Seguidores')
+      expect(page).to have_css('th', text: 'Tweet')
+      expect(page).to have_css('th', text: 'RTs')
+      expect(page).to have_css('th', text: 'Likes')
+      expect(page).to have_css('th', text: 'Data')
 
-  scenario 'without email' do
-    visit root_path
-
-    within('#user') do
-      fill_in 'email', with: ''
-      click_on 'Obter Tweets'
-    end
-
-    within('.error') do
-      expect(page).to have_content('Informe seu e-mail para começar')
     end
   end
 end
