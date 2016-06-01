@@ -8,9 +8,22 @@ RSpec.describe Mention do
 
     it 'dont contains in reply to user id 42' do
       mentions = Mention.new
-      mentions = mentions.all
+      mentions.all
 
-      expect(mentions).not_to include(42)
+      tweets = mentions.tweets.map { |tweet| tweet['in_reply_to_user_id'] }
+
+      expect(tweets).not_to include(42)
+    end
+
+    it 'contains mention to @locaweb' do
+      mentions = Mention.new
+      mentions.all
+
+      tweets = mentions.tweets.map { |tweet| tweet['text'] }
+
+      tweets.each do |tweet|
+        expect(tweet).to match(/@locaweb/)
+      end
     end
   end
 end

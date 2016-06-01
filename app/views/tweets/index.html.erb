@@ -9,8 +9,6 @@
       <th>Likes</th>
       <th>Data</th>
     </tr>
-    <% @tweets.each do |tweet| %>
-      <%= render partial: 'tweet', locals: { tweet: tweet } %>
-    <% end %>
+    <%= render @tweets %>
   </table>
 </div>

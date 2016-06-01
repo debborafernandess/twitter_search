@@ -1,8 +1,9 @@
 class Tweet < ActiveRecord::Base
-
   def self.search
     search_in_api unless exists?
-    all
+    order('user_followers_count desc,
+          retweet_count desc,
+          favourites_count desc')
   end
 
   def self.search_in_api
@@ -25,5 +26,4 @@ class Tweet < ActiveRecord::Base
       )
     end
   end
-
 end

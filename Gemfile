@@ -33,3 +33,4 @@ group :development do
   gem 'spring'
 end
 
+gem 'database_cleaner', group: :test

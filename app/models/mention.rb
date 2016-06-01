@@ -1,5 +1,5 @@
 class Mention
-  SEARCH_URI = '/search/tweets.json'
+  SEARCH_URI = '/search/tweets.json'.freeze
 
   attr_accessor :tweets
 
@@ -10,16 +10,15 @@ class Mention
   def all
     @request.get(SEARCH_URI)
 
-    get_mentions
+    mentions
     filter_replies
   end
 
-
   private
 
-  def get_mentions
+  def mentions
     return [] if @request.response.blank?
-    @tweets =  @request.response['statuses'].select { |tweet| /@locaweb/.match(tweet['text']) }
+    @tweets = @request.response['statuses'].select { |tweet| /@locaweb/.match(tweet['text']) }
   end
 
   def filter_replies

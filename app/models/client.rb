@@ -12,12 +12,12 @@ class Client
   private
 
   def request(method, route = '', params = {})
-    request = RestClient::Request.execute(
-                method: method,
-                url: url(route),
-                params: params,
-                headers: { username: 'mymail@mail.com' }
-              )
+    RestClient::Request.execute(
+      method: method,
+      url: url(route),
+      params: params,
+      headers: { username: 'mymail@mail.com' }
+    )
   end
 
   def url(route = '')

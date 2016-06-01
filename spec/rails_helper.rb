@@ -9,7 +9,11 @@ require 'simplecov'
 
 SimpleCov.start
 
+ActiveRecord::Migration.maintain_test_schema!
+
 RSpec.configure do |config|
+  config.use_transactional_fixtures = false
+
   config.include FactoryGirl::Syntax::Methods
 
   config.infer_spec_type_from_file_location!
@@ -19,4 +23,25 @@ RSpec.configure do |config|
   config.backtrace_exclusion_patterns << /gems/
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
+  config.before(:suite) do
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each, :js => true) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
