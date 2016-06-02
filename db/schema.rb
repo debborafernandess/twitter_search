@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160531205405) do
+ActiveRecord::Schema.define(version: 20160602120916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160531205405) do
     t.integer  "retweet_count"
     t.integer  "favourites_count"
     t.string   "user_screen_name"
-    t.string   "user_followers_count"
+    t.integer  "user_followers_count"
     t.text     "text"
     t.datetime "tweeted_at"
     t.datetime "created_at",           null: false
