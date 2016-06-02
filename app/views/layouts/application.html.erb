@@ -12,10 +12,14 @@
       <div class="navbar-header">
         <%= link_to 'Twitter SAC', root_path, class: 'navbar-brand' %>
       </div>
+      <div class="collapse navbar-collapse" id="navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Novas Menções', search_tweets_path %></li>
+        </ul>
+      </div>
     </div>
   </nav>
   <div class="container-fluid">
-    <%= link_to 'Menções', tweets_path %>
     <%= yield %>
   </div>
 </body>

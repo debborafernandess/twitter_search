@@ -1,5 +1,6 @@
 class Mention
   SEARCH_URI = '/search/tweets.json'.freeze
+  USER_ID    = 42
 
   attr_accessor :tweets
 
@@ -23,6 +24,6 @@ class Mention
 
   def filter_replies
     return [] if @tweets.blank?
-    @tweets = @tweets.select { |tweet| tweet['in_reply_to_user_id'] != 42 }
+    @tweets = @tweets.select { |tweet| tweet['in_reply_to_user_id'] != USER_ID }
   end
 end

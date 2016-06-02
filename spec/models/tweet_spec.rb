@@ -12,12 +12,5 @@ RSpec.describe Tweet do
 
       expect(Tweet.search).to eq([most_followers, most_retweets, most_favorites, tweets])
     end
-
-    it '#search_in_api' do
-      mentions = Mention.new
-      mentions.all
-
-      expect { Tweet.search_in_api }.to change { Tweet.count }
-    end
   end
 end

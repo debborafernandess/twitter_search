@@ -12,7 +12,7 @@ RSpec.describe Mention do
 
       tweets = mentions.tweets.map { |tweet| tweet['in_reply_to_user_id'] }
 
-      expect(tweets).not_to include(42)
+      expect(tweets).not_to include(Mention::USER_ID)
     end
 
     it 'contains mention to @locaweb' do

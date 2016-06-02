@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'tweets#index'
 
-  resources :tweets, only: [:index]
+  resources :tweets, only: [:index] do
+    get :search, on: :collection
+  end
 end

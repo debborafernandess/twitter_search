@@ -2,8 +2,9 @@
 
 ### Description
 Search by mentions on Twitter API to answer it. Also list users that more quote.
-First of all, it will send a request to get mentions and record this response into a Tweet's table, allowing App's users to answer the tweet later.
 
+First of all, it will send a automatic request to get mentions and record this response into a Tweet's table, allowing App's users to answer the tweet later.
+It's possible do it mannually later, clicking on 'Novas Menções'
 
 
 ### Instalation
