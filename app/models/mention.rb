@@ -19,7 +19,8 @@ class Mention
 
   def mentions
     return [] if @request.response.blank?
-    @tweets = @request.response['statuses'].select { |tweet| /@locaweb/.match(tweet['text']) }
+    @tweets = @request.response['statuses']
+              .select { |tweet| /@locaweb/.match(tweet['text']) }
   end
 
   def filter_replies

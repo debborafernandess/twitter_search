@@ -1,10 +1,14 @@
 class TweetsController < ApplicationController
   def index
-    @tweets = Tweet.search
+    @tweets = Tweet.all || search
   end
 
   def search
-    @tweets = Tweet.search(more: true)
+    @tweets = TweetSearcher.new.search_in_api
     redirect_to tweets_path
+  end
+
+  def mentionners
+    @tweets = Tweet.top_haters
   end
 end

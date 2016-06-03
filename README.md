@@ -3,8 +3,10 @@
 ### Description
 Search by mentions on Twitter API to answer it. Also list users that more quote.
 
-First of all, it will send a automatic request to get mentions and record this response into a Tweet's table, allowing App's users to answer the tweet later.
-It's possible do it mannually later, clicking on 'Novas Menções'
+First of all, it will send a automatic request to get mentions and record this response into Tweet's table, allowing App's users to answers the tweet later.
+Then, in homepage, the tweets mentioning @locaweb will be showed. Also it's possible do it manually later, by clicking on menu link 'Novas Menções'
+
+To know the Top Mentionners of @locaweb, just click into 'Top Mencionadores', and the tweets will be showed in order to have tweets of the more mentionners in top
 
 
 ### Instalation

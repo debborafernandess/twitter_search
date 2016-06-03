@@ -1,0 +1,18 @@
+<div>
+  <h1>Top Mencionadores</h1>
+  <table id='tweets' class='table table-bordered table-striped'>
+    <tr>
+      <th>Usuário</th>
+      <th>Seguidores</th>
+      <th>Tweet</th>
+      <th>RTs</th>
+      <th>Likes</th>
+      <th>Data</th>
+    </tr>
+    <% @tweets.each do |name, tweets| %>
+      <% for tweet in tweets %>
+        <%= render partial: 'tweet', locals: { tweet: tweet } %>
+      <% end %>
+    <% end %>
+  </table>
+</div>

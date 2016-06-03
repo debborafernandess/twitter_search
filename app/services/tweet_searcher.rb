@@ -1,5 +1,4 @@
 class TweetSearcher
-
   def initialize(mentions = Mention.new)
     @mentions = mentions
   end

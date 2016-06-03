@@ -11,7 +11,8 @@ RSpec.describe Client do
       client = Client.new
       route  = '/search/tweets.json'
 
-      expect(client.send(:url, route)).to eq("#{client.send(:base_url)}#{route}")
+      expect(client.send(:url, route))
+        .to eq("#{client.send(:base_url)}#{route}")
     end
   end
 
