@@ -9,6 +9,6 @@ class TweetsController < ApplicationController
   end
 
   def mentionners
-    @tweets = Tweet.top_haters
+    @tweets = Tweet.top_mentioners
   end
 end
