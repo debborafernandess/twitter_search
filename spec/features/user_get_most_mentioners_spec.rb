@@ -1,15 +1,12 @@
-feature 'Get most mentionners Tweets' do
-  scenario 'and group his tweets' do
-    top_hater     = create(:tweet,
-                           user_screen_name: 'top_hater',
-                           user_followers_count: 2)
-    hater_tweets  = create_list(:tweet, 2, user_screen_name: 'loca_hater')
-    normal_tweet  = create(:tweet)
+feature 'Get most mentioners' do
+  scenario 'and group its tweets' do
+    create(:tweet)
+    create(:tweet, user_screen_name: 'top_hater', user_followers_count: 2)
+    create_list(:tweet, 2, user_screen_name: 'hater')
 
     all_tweets    = Tweet.top_haters
 
     visit root_path
-
     click_on 'Top Mencionadores'
 
     expect(page).to have_css('h1', text: 'Top Mencionadores')
