@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
   end
 
   def search
-    @tweets = TweetSearcher.new.search_in_api
+    @tweets = TweetBuilder.save
     redirect_to tweets_path
   end
 
