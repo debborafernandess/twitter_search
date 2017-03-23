@@ -1,15 +1,14 @@
-class TweetSearcher
-  def initialize(mentions = Mention.new)
-    @mentions = mentions
-  end
+class TweetBuilder
 
-  def search_in_api
-    save_api_response(@mentions.all)
+  def self.save
+    mentions = MentionSearcher.without_replies
+
+    save_api_response(mentions)
   end
 
   private
 
-  def save_api_response(tweets)
+  def self.save_api_response(tweets)
     tweets.each do |tweet|
       Tweet.create!(
         favourites_count:     tweet['favourites_count'] || 0,

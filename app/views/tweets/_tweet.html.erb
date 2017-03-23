@@ -1,4 +1,4 @@
-<tr>
+<tr id="tweet_<%= tweet.id %>">
   <td><%= link_to tweet.user_screen_name, "//twitter.com/#{tweet.user_screen_name}", target: '_blank' %></td>
   <td><%= tweet.user_followers_count %></td>
   <td><%= tweet.text %></td>

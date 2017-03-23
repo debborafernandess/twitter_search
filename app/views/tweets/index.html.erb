@@ -9,6 +9,12 @@
       <th>Likes</th>
       <th>Data</th>
     </tr>
-    <%= render @tweets %>
+    <% if @tweets.any? %>
+      <%= render @tweets %>
+    <% else %>
+      <tr>
+       <td colspan='6'>Sem menções para analisar</td>
+      </tr>
+    <% end %>
   </table>
 </div>

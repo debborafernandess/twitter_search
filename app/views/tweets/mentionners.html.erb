@@ -9,10 +9,12 @@
       <th>Likes</th>
       <th>Data</th>
     </tr>
-    <% @tweets.each do |name, tweets| %>
-      <% for tweet in tweets %>
-        <%= render partial: 'tweet', locals: { tweet: tweet } %>
-      <% end %>
+    <% if @tweets.any? %>
+      <%= render @tweets %>
+    <% else %>
+      <tr>
+       <td colspan='6'>Sem menções para analisar</td>
+      </tr>
     <% end %>
   </table>
 </div>
